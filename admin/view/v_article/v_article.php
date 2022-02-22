@@ -29,7 +29,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title m-b-0">Quản lý tài khoản</h5>
+                        <h5 class="card-title m-b-0">Quản lý bài viết</h5>
                     </div>
                     <form method="POST">
                         <table class="table table-bordered table-striped">

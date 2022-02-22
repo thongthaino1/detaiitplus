@@ -4,7 +4,7 @@ $("#submit_search").on("click",function (e) {
 $("#orderby").on("change",function (e) {
     e.preventDefault();
 });
-function getData() {
+function getLink() {
 
     var data = [];
      data[data.length] =  $("#searchForm").serialize();

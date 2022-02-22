@@ -30,6 +30,7 @@ class c_home{
             $json = $_COOKIE['cart'];
             $cart = json_decode($_COOKIE['cart'], true);
         }
+
 //      var_dump($_SESSION);
 
 
@@ -98,7 +99,7 @@ class c_home{
 
         }
 
-        echo $sql;
+//        echo $sql;
 //        echo "<pre>";
 //        var_dump($_SESSION['user']);
         echo "</pre>";

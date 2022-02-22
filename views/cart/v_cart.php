@@ -1,4 +1,9 @@
 <!--breadcrumbs area start-->
+<?php
+
+
+var_dump($_SESSION);
+?>
 <div class="breadcrumbs_area">
     <div class="container">
         <div class="row">
@@ -37,8 +42,8 @@
                                     </thead>
                                     <tbody>
 
-                                    <?php if (isset($cartList)) {
 
+                        <?php
                                         foreach ($cartList as $item) {
                                             for ($i = 0; $i < count($cart); $i++) {
                                                 if ($item->ID == $cart[$i]['id']) {
@@ -64,7 +69,7 @@
                                             <?php
 
 
-                                        }
+
                                     } ?>
 
 

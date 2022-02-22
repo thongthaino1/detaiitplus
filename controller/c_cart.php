@@ -7,6 +7,7 @@ class c_cart{
         $user = [];
         $tong = $totalqty = 0;
         $cartList = [];
+
         if(isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
         }
@@ -22,9 +23,8 @@ class c_cart{
             $json = $_COOKIE['cart'];
             $cart = json_decode($_COOKIE['cart'], true);
         }
-        if(isset($_SESSION['cartList'])){
+        if(isset($_SESSION['cartList']) && isset($cart)){
             $cartList = $_SESSION['cartList'];
-
             $view = "views/cart/v_cart.php";
             require_once "templates/cart/layouts.php";
         }

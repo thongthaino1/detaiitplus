@@ -43,7 +43,7 @@
                                 echo '<li><a href="?type=' . $value->ID . '">' . $value->ten_loai_san_pham . '</a></li>';
                             }
                             ?>
-                            ?>
+
                         </ul>
                     </div>
                     <div class="widget_list widget_filter">
@@ -175,10 +175,10 @@
                                     title="List"></button>
                         </div>
                         <div class=" ">
-                            <button onclick="getData()">Click ne</button>
+                            <button onclick="getLink()">Click ne</button>
                             <form class="" id="orderbyForm" action="" method="post" name="orderbyForm">
                                 <select name="orderby" id="orderby" class="form-select"
-                                        onchange="getData()">
+                                        onchange="getLink()">
 
                                     <!--                                <option selected value="1">Sắp xếp theo đánh giá người dùng</option>-->
                                     <option value="ngay_tao" selected>Sắp xếp theo</option>

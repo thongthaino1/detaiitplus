@@ -13,8 +13,7 @@ function AddToCart(id) {
             }, function (data) {
                 alert("Thêm thành công");
                 console.log(data);
-                $("#tong").innerHTML = 2 ;
-                $("#totalqty").innerHTML = 1;
+                location.reload();
             }
         );
     }
