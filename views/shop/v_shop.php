@@ -48,11 +48,10 @@
                     </div>
                     <div class="widget_list widget_filter">
                         <h3>Filter by price</h3>
-                        <form id = "filterPrice" action="#" method="get">
+                        <form action="#">
                             <div id="slider-range"></div>
-                            <button id = "filter" onclick="getLink()">Filter</button>
-                            <input type="text" id="amount"/>
-                            <input type="hidden" name = "filterPrice" id="currency"/>
+                            <button type="submit">Filter</button>
+                            <input type="text" name="text" id="amount"/>
 
                         </form>
                     </div>
@@ -176,6 +175,7 @@
                                     title="List"></button>
                         </div>
                         <div class=" ">
+                            <button onclick="getLink()">Click ne</button>
                             <form class="" id="orderbyForm" action="" method="post" name="orderbyForm">
                                 <select name="orderby" id="orderby" class="form-select"
                                         onchange="getLink()">
@@ -209,7 +209,7 @@
                                     <figure>
                                         <div class="product_thumb">
                                             <a class="primary_img" href="product_details.php?id=<?= $value->ID ?>"><img
-                                                        src="public/assets/img/product/<?= $value->hinh_san_pham ?>" alt=""></a>
+                                                        src="<?= $value->hinh_san_pham ?>" alt=""></a>
                                             <a class="secondary_img" href="product-details.html"><img
                                                         src="public/assets/img/product/product6.jpg" alt=""></a>
                                             <div class="label_product">
@@ -264,7 +264,7 @@
                                                 </div>
                                             </div>
                                             <div class="add_to_cart">
-                                                <a   onclick="AddToCart(<?= $value->ID ?>)" title="Add to cart">Add to cart</a>
+                                                <a href="cart.html" title="Add to cart">Add to cart</a>
                                             </div>
                                         </div>
                                         <div class="product_content list_content">

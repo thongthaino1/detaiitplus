@@ -1,7 +1,6 @@
 <?php
-include_once 'check_login.php';
+@session_start();
 include_once "models/m_user.php";
-echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
 class c_user{
     public function check_login(){
 
@@ -41,9 +40,9 @@ class c_user{
 
     }
     public function logout(){
-        unset($_SESSION['user_admin']);
-        echo '<script>swal("Good job!", "Đăng xuất thành công", "success");</script>';
-        echo "<script>window.location = 'login.php';</script>";
+        session_destroy();
+        header('Location: login.php');
+
     }
 
 }

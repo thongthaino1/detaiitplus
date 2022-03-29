@@ -1,8 +1,9 @@
 <?php
-include "templates/head.php";
+$title = "Trang chủ";
+include "head.php";
 include "header.php";
-include "templates/content.php";
-include "templates/footer.php";
+include "content.php";
+include "footer.php";
 ?>
 
 

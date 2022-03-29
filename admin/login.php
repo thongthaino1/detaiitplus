@@ -7,9 +7,13 @@ if(isset($_SESSION['user_admin']))
     die();
 
 }
+
 ?>
+
+
 <!DOCTYPE html>
 <html dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +23,7 @@ if(isset($_SESSION['user_admin']))
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="public/assets/images/favicon.png">
-    <title>Đăng nhập</title>
+    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <link href="public/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

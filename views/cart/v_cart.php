@@ -58,7 +58,7 @@ var_dump($_SESSION);
                                                                                       onclick="DeleteFromCart(<?= $item->ID ?>)"></i></a>
                                                 </td>
                                                 <td class="product_thumb"><a href="#"><img
-                                                                src="public/image/product/<?= $item->hinh_san_pham ?>" alt=""></a></td>
+                                                                src="<?= $item->hinh_san_pham ?>" alt=""></a></td>
                                                 <td class="product_name"><a href="#"></a><?= $item->ten_san_pham ?></td>
                                                 <td class="product-price"><?= number_format($item->don_gia, 0, ',', '.') ?></td>
                                                 <td class="product_quantity">

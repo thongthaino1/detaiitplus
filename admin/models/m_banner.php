@@ -4,10 +4,7 @@ class m_banner extends database{
     public function insert($ten_tieu_de,$hinh_anh,$trang_thai){
         $sql = "INSERT INTO  tieu_de(ten_tieu_de,hinh,trang_thai) value (?,?,?)";
         $this->setQuery($sql);
-         $this->execute(array($ten_tieu_de,$hinh_anh,$trang_thai));
-         echo $sql;
-         var_dump($ten_tieu_de,$hinh_anh,$trang_thai);
-        return $this->getLastId();
+        return $this->execute(array($ten_tieu_de,$hinh_anh,$trang_thai));
 
 
     }
@@ -24,6 +21,7 @@ class m_banner extends database{
     }
     public function update($ten_tieu_de,$hinh_anh,$trang_thai,$id)
     {
+        var_dump($ten_tieu_de,$hinh_anh,$trang_thai,$id); ;
         $sql = "UPDATE tieu_de set ten_tieu_de = ? , hinh = ?, trang_thai = ? where ma_tieu_de = ?";
         $this->setQuery($sql);
         return $this->execute(array($ten_tieu_de, $hinh_anh, $trang_thai,$id));

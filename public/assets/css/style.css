@@ -3816,12 +3816,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 /*  opacity: 1;*/
 /*  visibility: visible;*/
 /*}*/
-.single_product:hover .add_to_cart {
-  visibility: visible;
-  opacity: 1;
-  bottom: -61px;
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.15);
-}
+/*.single_product:hover .add_to_cart {*/
+/*  visibility: visible;*/
+/*  opacity: 1;*/
+/*  bottom: -61px;*/
+/*  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.15);*/
+/*}*/
 
 .product_thumb {
   position: relative;

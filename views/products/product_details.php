@@ -27,7 +27,7 @@
                         <div class="product-details-tab">
                             <div id="img-1" class="zoomWrapper single-zoom">
                                 <a href="#">
-                                    <img id="zoom1" <img src="public/image/product/<?= $hinh ?>" alt="">
+                                    <img id="zoom1" src="<?=$hinh?>" data-zoom-image="<?=$hinh?>" alt="big-1">
                                 </a>
                             </div>
                             <div class="single-zoom-thumb">
@@ -109,11 +109,11 @@
                                 <div class=" product_d_action">
                                     <ul>
                                         <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>
-<!--                                        <li><a href="#" title="Add to wishlist">+ Compare</a></li>-->
+                                        <li><a href="#" title="Add to wishlist">+ Compare</a></li>
                                     </ul>
                                 </div>
                                 <div class="product_meta">
-                                    <span>Loại sản phẩm: <a href="shop.php?type=<?= $type ?> "><?= $typeName ?></a></span>
+                                    <span>Loại sản phẩm: <a href="#"><?= $type ?></a></span>
                                 </div>
 
                             </form>
@@ -257,19 +257,18 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title">
-                        <h2>Sản phẩm liên quan</h2>
+                        <h2>Related Products </h2>
                     </div>
                 </div>
             </div>
             <div class="product_carousel product_style product_column5 owl-carousel">
 
-                <?php
-                foreach ($related_products as $val )
-                {
-                    echo '<article class="single_product">
+
+                <article class="single_product">
                     <figure>
+
                         <div class="product_thumb">
-                            <a class="primary_img" href="product_details.php?id='.$val->ID.'"><img src="public/assets/img/product/'.$val->hinh_san_pham.'" alt=""></a>
+                            <a class="primary_img" href="product-details.html"><img src="public/assets/img/product/product14.jpg" alt=""></a>
                             <a class="secondary_img" href="product-details.html"><img src="public/assets/img/product/product13.jpg" alt=""></a>
                             <div class="label_product">
                                 <span class="label_sale">Sale</span>
@@ -284,22 +283,19 @@
                         </div>
                         <div class="product_content">
                             <div class="product_content_inner">
-                                <h4 class="product_name"><a href="product-details.html">'.$val->ten_san_pham.'</a></h4>
+                                <h4 class="product_name"><a href="product-details.html">Natus erro at congue massa commodo sit Natus erro</a></h4>
                                 <div class="price_box">
                                     <span class="old_price">$142.435</span>
-                                    <span class="current_price">'.$val->don_gia.'</span>
+                                    <span class="current_price"><?=$ten_san_pham?></span>
                                 </div>
                             </div>
                             <div class="add_to_cart">
-                                <a onclick="AddToCart('.$val->ID.')" title="Add to cart">Add to cart</a>
+                                <a href="cart.html" title="Add to cart">Add to cart</a>
                             </div>
 
                         </div>
                     </figure>
-                </article>';
-                }
-                ?>
-
+                </article>
 
             </div>
             <script type="text/javascript">

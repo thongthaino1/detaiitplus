@@ -1,24 +1,23 @@
 <?php
-include_once 'check_login.php';
+session_start();
 include_once("models/m_customer.php");
-echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
+
 class c_customer
 {
     public function show(){
-        $id = getGET("id");
+        $id = $_GET['id'];
         if (isset($_SESSION['message'])) {
             echo "<script type='text/javascript'> alert('" . $_SESSION['message'] . "'); </script>";
             unset($_SESSION['message']);
         }
         $m_customer = new m_customer();
         $list = $m_customer->selectAll();
+        echo $id;
         if(isset($id))
         {
             $list = $m_customer->selectAll($id);
         }
-//        var_dump($list);
 
-        $title = "Thông tin khách hàng";
         $view= "view/v_customer/v_customer.php";
         include_once "templates/layouts.php";
     }

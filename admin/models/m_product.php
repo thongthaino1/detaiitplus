@@ -1,41 +1,28 @@
 <?php
 require_once ("database.php");
 class m_product extends database{
-    public function insert($typeID,$name,$img,$price,$desc,$amount,$created_at,$views){
-        $sql = "INSERT INTO  san_pham(ID_loai_san_pham,ten_san_pham,don_gia,mo_ta,so_luong,hinh_san_pham,ngay_tao,luot_xem)
- value (?,?,?,?,?,?,?,?)";
+    public function insert($ten_tieu_de,$hinh_anh,$trang_thai){
+        $sql = "INSERT INTO  san_pham(ten_tieu_de,hinh,trang_thai) value (?,?,?)";
         $this->setQuery($sql);
-        $this->execute(array($typeID,$name,$price,$desc,$amount,$img,$created_at,$views));
-        return $this->getLastId();
+        return $this->execute(array($ten_tieu_de,$hinh_anh,$trang_thai));
     }
     public function selectAll(){
         $sql = "Select * from san_pham ";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
-    public function selectAllType(){
-        $sql = "Select * from loai_san_pham WHERE trang_thai = 1 ";
-        $this->setQuery($sql);
-        return $this->loadAllRows();
-    }
     public function selectOne($id){
 
-        $sql = "Select * from san_pham where ID = ?";
+        $sql = "Select * from tieu_de where ma_tieu_de = ?";
         $this->setQuery($sql);
         return $this->loadRow([$id]);
     }
-    public function selectByCategory($id){
-        $sql = "Select * from san_pham where ID_loai_san_pham = ?";
-        $this->setQuery($sql);
-        return $this->loadAllRows(array($id));
-    }
-    public function update($typeID,$name,$img,$price,$desc,$amount,$ID)
+    public function update($ten_tieu_de,$hinh_anh,$trang_thai,$id)
     {
-        $sql = "UPDATE san_pham set ID_loai_san_pham = ? ,ten_san_pham = ?,don_gia=?,mo_ta=?,so_luong=?,
-        hinh_san_pham= ? where ID = ?";
-
+        var_dump($ten_tieu_de,$hinh_anh,$trang_thai,$id); ;
+        $sql = "UPDATE tieu_de set ten_tieu_de = ? , hinh = ?, trang_thai = ? where ma_tieu_de = ?";
         $this->setQuery($sql);
-        return $this->execute(array($typeID,$name,$price,$desc,$amount,$img,$ID));
+        return $this->execute(array($ten_tieu_de, $hinh_anh, $trang_thai,$id));
 
     }
     public function delete(){

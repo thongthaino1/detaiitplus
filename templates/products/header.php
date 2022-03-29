@@ -56,21 +56,21 @@ if(isset($_COOKIE['cart'])) {
                         </ul>
 
                     </div>
-                                       <div class="search_container">-->
-                                                                    <form action="#">
-                                                                        <div class="hover_category">
-                                                                            <select class="select_option" name="select" id="categori1">
-                                                                                <option selected value="1">All Categories</option>
+                    <div class="search_container">-->
+                        <form action="#">
+                            <div class="hover_category">
+                                <select class="select_option" name="select" id="categori1">
+                                    <option selected value="1">All Categories</option>
 
 
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="search_box">
-                                                                            <input placeholder="Search product..." type="text">
-                                                                            <button type="submit">Search</button>
-                                                                        </div>
-                                                                    </form>
-                                        </div>
+                                </select>
+                            </div>
+                            <div class="search_box">
+                                <input placeholder="Search product..." type="text">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
                             <li class="menu-item-has-children active">
