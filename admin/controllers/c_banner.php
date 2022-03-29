@@ -1,6 +1,7 @@
 <?php
-session_start();
+include_once 'check_login.php';
 include_once("models/m_banner.php");
+echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
 
 class c_banner
 {
@@ -8,12 +9,13 @@ class c_banner
     {
 
         if (isset($_SESSION['message'])) {
-            echo "<script type='text/javascript'> alert('" . $_SESSION['message'] . "'); </script>";
+            echo '<script>swal("Thành công!", ' . $_SESSION["message"] .', "success");</script>';
             //to not make the error message appear again after refresh:
             unset($_SESSION['message']);
         }
         $m_banner = new m_banner();
         $list = $m_banner->selectAll();
+        $title = "Tiêu đề";
         $view = "view/v_banner/v_banner.php";
         include_once "templates/layouts.php";
 
@@ -23,6 +25,7 @@ class c_banner
     {
         $s_hinh_anh = $s_ten_tieu_de = $s_trang_thai = $s_id = "";
         $m_banner = new m_banner();
+        echo '<script> swal("Failed!", "Thêm thất bại!", "error");</script>';
 
         if (isset($_GET['id'])) {
             $s_id = $_GET['id'];
@@ -54,33 +57,42 @@ class c_banner
                     } else {
                         $resultUpdate = $m_banner->update($ten_tieu_de, $s_hinh_anh, $status, $s_id);
                     }
-
                     if ($resultUpdate) {
                         if ($hinh_anh != "") {
                             move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
+                        } else {
+                            $hinh_anh = "default.jpg";
+                            move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
                         }
-                        $_SESSION['message'] = "Cập nhật thành công";
+                        echo '<script>swal("Good job!", "Cập nhật thành công!", "success").then(()=>{window.location = "banner.php"});</script>';
                     } else {
-                        $_SESSION['message'] = "Cập nhật thất bại";
+                        echo '<script> swal("Failed!", "Cập nhật thất bại!", "error");</script>';
+                        return;
                     }
-//                  header("Location:banner.php");
-//                var_dump($_SESSION['message']);
-
-                } else {
+                }
+            else {
+                    if($hinh_anh == "")
+                    {
+                        $hinh_anh = "default.jpg";
+                    }
                     $resultInsert = $m_banner->insert($ten_tieu_de, $hinh_anh, $status);
+
                     if ($resultInsert) {
                         if ($hinh_anh != "")
                             move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
-                        echo "<script>alert('Thêm thành công');</script>";
+                        echo '<script>swal("Good job!", "Thêm thành công!", "success").then(()=>{window.location = "banner.php"});</script>';
+
                     } else {
-                        echo "<script>alert('Thêm thất bại');</script>";
+                        echo '<script> swal("Failed!", "Thêm thất bại!", "error");</script>';
+
+
                         return;
                     }
 //                header("Location:banner.php");
                 }
 
             }
-
+        $title = "Cập nhât tiêu đề";
         $view = "view/v_banner/v_addbanner.php";
         include_once "templates/layouts.php";
 

@@ -7,10 +7,11 @@ if (isset($_POST['id'])) {
     $m->setQuery($sql);
     $delete =  $m->execute();
     if ($delete) {
-        echo "Xóa thành công";
+        echo "success";
     } else {
-        echo "Không xóa được";
+        echo "fail";
     }
+
 
 
 

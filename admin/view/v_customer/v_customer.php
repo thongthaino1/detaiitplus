@@ -32,7 +32,7 @@
                         <h5 class="card-title m-b-0">Quản lý tài khoản</h5>
                     </div>
                     <form method="POST">
-                        <table class="table table-bordered table-striped">
+                        <table id = "zero_config" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">STT</th>
@@ -42,7 +42,7 @@
                                 <th scope="col">Số điện thoại </th>
                                 <th scope="col">Ngày sinh</th>
                                 <th scope="col">Ghi chú</th>
-<!--                                <th scope="col" colspan="2">Thao tác</th>-->
+                                <th scope="col" colspan="2">Thao tác</th>
                             </tr>
                             </thead>
 
@@ -63,8 +63,8 @@
                                     <td><?= $value->so_dien_thoai?></td>
                                     <td scope="row"><?=  date("d-m-Y",strtotime($value->ngay_sinh)) ?></td>
                                     <td><?= $value->ghi_chu ?></td>
-<!--                                    <td><button type="button" class="btn btn-success btn-sm" onclick="window.open('updateAccount.php?id=--><?//= $value->ID?>//','__self')">Sửa</button></td>
-<!--                                    <td><button type="submit" class="btn btn-danger btn-sm" onclick="deleteCustomer('--><?//= $value->ID?>//')">Xóa</button></td>
+                                    <td><button type="button" class="btn btn-success btn-sm" onclick="window.open('updateAccount.php?id=<?= $value->ID?>','__self')">Sửa</button></td>
+                                    <td><button type="submit" class="btn btn-danger btn-sm" onclick="deleteCustomer('<?= $value->ID?>')">Xóa</button></td>
 
                                 </tr>
                                 <?php
@@ -101,4 +101,4 @@
         <!-- ============================================================== -->
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
-    </div></div>
+    </div>

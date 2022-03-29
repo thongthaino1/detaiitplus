@@ -4,59 +4,39 @@
             <div class="col-lg-6 offset-lg-3 col-md-12">
                 <div class="swiper-container gallery-top">
                     <div class="slider_area swiper-wrapper">
-
-                        <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="public/assets/img/slider/slider1.jpg">
+                        <?php
+                        foreach ($banners as $banner )
+                        {
+                            echo ' <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="public/image/banner/'.$banner->hinh.'">
                             <div class="slider_content">
-                                <h3>Sản phẩm phổ biến</h3>
+                                <h3>'.$banner->ten_tieu_de.'</h3>
                                 <h1>mùa hè <br> bộ sưu tập 2021</h1>
                                 <p>giảm giá <span> -30% </span>trong tuần</p>
                                 <a class="button" href="shop.html">KHÁM PHÁ NGAY</a>
                             </div>
-                        </div>
-                        <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="public/assets/img/slider/slider2.jpg">
-                            <div class="slider_content">
-                                <h3>Sản phẩm sale lớn</h3>
-                                <h1>wooden minimalist <br> chair 2021</h1>
-                                <p>discount <span> -50% off</span> this week</p>
-                                <a class="button" href="shop.html">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                        <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="public/assets/img/slider/slider3.jpg">
-                            <div class="slider_content color_white">
-                                <h3>new arrivals</h3>
-                                <h1>business <br> off mobile apps</h1>
-                                <p>discount <span> -10% off</span> this week</p>
-                                <a class="button" href="shop.html">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                        <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="public/assets/img/slider/slider4.jpg">
-                            <div class="slider_content color_white">
-                                <h3>new arrivals</h3>
-                                <h1>cellphone <br> new model 2021</h1>
-                                <p>discount <span> -60% off</span> this week</p>
-                                <a class="button" href="shop.html">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                    </div>
+                        </div>';
+                        }
+
+                        ?>
+
+                         </div>
                     <!-- Add Arrows -->
 
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="swiper-container gallery-thumbs">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            Eodem modo vel mattis ante nec
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="#"></a>
-                            Wooden Minimalist Chair 2019
-                        </div>
-                        <div class="swiper-slide">
-                            Eodem modo vel mattis ante facilisis nec
-                        </div>
-                        <div class="swiper-slide">
-                            Donec eu libero ac dapibus
-                        </div>
+                        <?php
+                        foreach ($banners as $banner )
+                        {
+                            echo '<div class="swiper-slide " style="font-family:">'.$banner->ten_tieu_de.'</div>';
+
+
+                        }
+
+                        ?>
+
+
                     </div>
                 </div>
 
@@ -64,21 +44,19 @@
             <div class="s_banner col-lg-3 col-md-12">
                 <!--banner area start-->
                 <div class="sidebar_banner_area">
-                    <figure class="single_banner mb-20">
+                    <?php
+
+                    foreach ($banner_side as $banner )
+                    {
+                        echo ' <figure class="single_banner mb-20">
                         <div class="banner_thumb">
-                            <a href="shop.html"><img src="public/assets/img/bg/banner1.jpg" alt=""></a>
+                            <a href="shop.html"><img src="public/image/banner/'.$banner->hinh.'" alt="Ảnh banner"></a>
                         </div>
-                    </figure>
-                    <figure class="single_banner mb-20">
-                        <div class="banner_thumb">
-                            <a href="shop.html"><img src="public/assets/img/bg/banner2.jpg" alt=""></a>
-                        </div>
-                    </figure>
-                    <figure class="single_banner">
-                        <div class="banner_thumb">
-                            <a href="shop.html"><img src="public/assets/img/bg/banner3.jpg" alt=""></a>
-                        </div>
-                    </figure>
+                    </figure>';
+                    }
+
+                    ?>
+
                 </div>
                 <!--banner area end-->
             </div>

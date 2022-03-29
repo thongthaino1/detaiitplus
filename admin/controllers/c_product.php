@@ -1,32 +1,49 @@
 <?php
-session_start();
-include_once ("models/m_product.php");
+include_once 'check_login.php';
+include_once("models/m_product.php");
+include_once("models/m_category.php");
+echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
+
 class c_product
 {
-    public function show(){
+    public function show()
+    {
         if (isset($_SESSION['message'])) {
             echo "<script type='text/javascript'> alert('" . $_SESSION['message'] . "'); </script>";
             unset($_SESSION['message']);
         }
         $m_product = new m_product();
         $list = $m_product->selectAll();
+        $m_category = new M_category();
+        $types = $m_category->Read_category();
+        $id_loai = "";
+        if (isset($_GET['ma_loai_san_pham'])) {
+            $id_loai = $_GET['ma_loai_san_pham'];
+            if (!empty($id_loai))
+                $list = $m_product->selectByCategory($id_loai);
+        }
+        $title = "Sản phẩm";
         $view = "view/v_product/v_product.php";
         include_once "templates/layouts.php";
     }
+
     public function update()
     {
-        $s_hinh_anh = $s_ten_tieu_de = $s_trang_thai = $s_id = "";
-        $m_banner = new m_product();
+        $s_typeID = $s_name = $s_price = $s_desc = $s_amount = $s_img = $created_at = $views = "";
+        $m_product = new m_product();
+        $types = $m_product->selectAllType();
 
         if (isset($_GET['id'])) {
             $s_id = $_GET['id'];
-            $resultSelect = $m_banner->selectOne($s_id);
+            $resultSelect = $m_product->selectOne($s_id);
 
             if ($resultSelect) {
-                $s_id = $resultSelect->ma_tieu_de;
-                $s_ten_tieu_de = $resultSelect->ten_tieu_de;
-                $s_hinh_anh = $resultSelect->hinh;
-                $s_trang_thai = $resultSelect->trang_thai;
+                $s_typeID = $resultSelect->ID_loai_san_pham;
+                $s_name = $resultSelect->ten_san_pham;
+                $s_price =$resultSelect->don_gia;
+                $s_desc =$resultSelect->mo_ta;
+                $s_amount =$resultSelect->so_luong;
+                $s_img =$resultSelect->hinh_san_pham;
 
             } else {
                 $s_id = "";
@@ -34,57 +51,64 @@ class c_product
 
 
         }
-        if (isset($_POST['submitForm'])) {
-
-            $ten_tieu_de = $_POST['ten_tieu_de'] != "" ? $_POST['ten_tieu_de'] : "";
-            $hinh_anh = ($_FILES['hinh_anh']['error'] == 0) ? $_FILES["hinh_anh"]['name'] : "";
-            $status = ($_POST['trang_thai'] != "") ? $_POST['trang_thai'] : "1";
-            var_dump($_POST['id']);
+        if (isset($_POST['submit'])) {
+            $typeID = $_POST['typeID'] != "" ? $_POST['typeID'] : "";
+            $name = $_POST['name'] != "" ? $_POST['name'] : "";
+            $price = $_POST['price'] != "" ? $_POST['price'] : "";
+            $desc = $_POST['desc'] != "" ? $_POST['desc'] : "";
+            $amount = $_POST['amount'] != "" ? $_POST['amount'] : "";
+            $img = ($_FILES['img']['error'] == 0) ? $_FILES["img"]['name'] : "";
+            $created_at = $_POST['created_at'] != "" ? $_POST['created_at'] : "";
+            $views = $_POST['view'] != "" ? $_POST['view'] : "";
+            
+            
             if (!empty($s_id)) {
-                $id = $_POST['id'] != "" ? $_POST['id'] : "";
-                if (!empty($hinh_anh)) {
+                $ID = $_POST['id'] != "" ? $_POST['id'] : "";
+                if (!empty($img)) {
 
-                    $resultUpdate = $m_banner->updateBanner($ten_tieu_de, $hinh_anh, $status, $s_id);
+                    $resultUpdate = $m_product->update($typeID,$name,$img,$price,$desc,$amount,$ID);
                 } else {
-                    $resultUpdate = $m_banner->updateBanner($ten_tieu_de, $s_hinh_anh, $status, $s_id);
+                    $resultUpdate = $m_product->update($typeID,$name,$s_img,$price,$desc,$amount,$ID);
                 }
 
                 if ($resultUpdate) {
-                    if ($hinh_anh != "") {
-                        move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
+                    if ($img != "") {
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../public/image/$img");
                     }
-                    $_SESSION['message'] = "Cập nhật thành công";
+                    echo '<script>swal("Good job!", "Cập nhật thành công!", "success").then(()=>{window.location = "products.php"})</script>';
+
+
                 } else {
-                    $_SESSION['message'] = "Cập nhật thất bại";
+                    echo '<script> swal("Failed!", "Cập nhật thất bại!", "error")</script>';
+
                 }
-//                  header("Location:banner.php");
-//                var_dump($_SESSION['message']);
+//
 
             } else {
-                $resultInsert = $m_banner->insertBanner($ten_tieu_de, $hinh_anh, $status);
+                $resultInsert = $m_product->insert($typeID,$name,$img,$price,$desc,$amount,$created_at,$views);
                 if ($resultInsert) {
-                    if ($hinh_anh != "")
-                        move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
-                    echo "<script>alert('Thêm thành công');</script>";
+                    if ($img != "")
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../public/image/$img");
+                    echo '<script>swal("Good job!", "Thêm thành công!", "success").then(()=>{window.location = "products.php"})</script>';
                 } else {
-                    echo "<script>alert('Thêm thất bại');</script>";
+                    echo '<script> swal("Good job!", "Thêm thất bại!", "error");</script>';
                     return;
                 }
-//                header("Location:banner.php");
+//                header("Location:.php");
             }
 
         }
-
-        $view = "view/v_banner/v_addbanner.php";
+        $title = "Cập nhât sản phẩm";
+        $view = "view/v_product/v_add_product.php";
         include_once "templates/layouts.php";
     }
 
     public function delete()
     {
-        $m_banner = new m_product();
-        $deletebanner = $m_banner->deleteBanner();
+        $m_product = new m_product();
+        $delete = $m_product->delete();
 
-        if ($deletebanner) {
+        if ($delete) {
             echo "Xóa thành công";
         } else {
             echo "Không xóa được";

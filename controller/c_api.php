@@ -1,4 +1,5 @@
 <?php
+echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
 session_start();
 include_once "models/m_product.php";
 include_once "models/m_api.php";

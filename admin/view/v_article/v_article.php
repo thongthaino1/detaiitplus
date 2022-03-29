@@ -3,17 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Small Buttons</h5>
-                    <!--                    <button type="button" class="btn btn-primary btn-sm">Primary</button>-->
-                    <!--                    <button type="button" class="btn btn-secondary btn-sm">Secondary</button>-->
-                    <!--                    <button type="button" class="btn btn-success btn-sm">Success</button>-->
-                    <!--                    <button type="button" class="btn btn-danger btn-sm">Danger</button>-->
-                    <!--                    <button type="button" class="btn btn-warning btn-sm">Warning</button>-->
-                    <!--                    <button type="button" class="btn btn-info btn-sm">Info</button>-->
-                    <!--                    <button type="button" class="btn btn-light btn-sm">Light</button>-->
-                    <!--                    <button type="button" class="btn btn-dark btn-sm">Dark</button>-->
-                    <!--                    <button type="button" class="btn btn-link btn-sm">Link</button>-->
-                    <button type="button" class="btn btn-primary btn-sm" onclick="window.open('updateArticle.php')" value="">Thêm 1 bài viết mới</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="window.open('updateArticle.php')" value="">Thêm mới</button>
 
                 </div>
             </div>
@@ -32,7 +22,7 @@
                         <h5 class="card-title m-b-0">Quản lý bài viết</h5>
                     </div>
                     <form method="POST">
-                        <table class="table table-bordered table-striped">
+                        <table id = "zero_config" class="table table-bordered table-striped">
                             <thead>
                             <tr>
 <!--                                <th scope="col">STT</th>-->

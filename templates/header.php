@@ -1,6 +1,6 @@
 
 <?php
-//echo 1212123;
+include_once "models/m_product.php";
 $m_product = new m_product();
 $types  = $m_product->showAllTypes();
 $tong = $totalqty = 0;
@@ -24,7 +24,17 @@ if(isset($_COOKIE['cart'])) {
     $tong = 0;
     $totalqty = 0;
     $cartList = [];
+    unset($_SESSION['cartList']);
+    unset($_SESSION['tong']);
+    unset($_SESSION['totalqty']);
+
 }
+
+if (isset($_SESSION['messege'])) {
+    echo '<script>alert("' . $_SESSION['messege'] . '")</script>';
+    unset($_SESSION['messege']);
+}
+
 ?>
 
 
@@ -211,14 +221,14 @@ if(isset($_COOKIE['cart'])) {
                                              </a>
                                              
                                     <div  class="dropdown-menu dropdown-menu-right user-dd animated">
-                                        <a class="dropdown-item" href="myprofile.php"><i
+                                        <a class="dropdown-item" href="my_account.php"><i
                                                     class="ti-user m-r-5 m-l-5"></i>Thông tin cá nhân</a>
                                         <a class="dropdown-item" href="mybalance.php"><i
                                                     class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                         <a class="dropdown-item" href="javascript:void(0)"><i
                                                     class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                                        <a class="dropdown-item" href="javascript:void(0)"><i
-                                                    class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                        <a class="dropdown-item" href="change_pass.php"><i
+                                                    class="ti-settings m-r-5 m-l-5"></i> Đổi mật khẩu</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="logout.php?func=exit"><i
                                                     class="fa fa-power-off m-r-5 m-l-5"></i> Đăng xuất</a>
@@ -373,8 +383,7 @@ if(isset($_COOKIE['cart'])) {
                         ?>
                         <div class="cart_item">
                             <div class="cart_img">
-                                <a href="product_details.php?id=<?= $item->ID ?>"><img src="<?= $item->hinh_san_pham ?>"
-                                                                                       alt=""></a>
+                                <a href="product_details.php?id=<?= $item->ID ?>"><img src="public/image/product/<?= $item->hinh_san_pham ?>" alt=""></a>
                             </div>
                             <div class="cart_info">
                                 <a href="#"><?php $item->ten_san_pham ?></a>
@@ -408,7 +417,7 @@ if(isset($_COOKIE['cart'])) {
                         <a href="cart.php">Xem giỏ hàng</a>
                     </div>
                     <div class="cart_button">
-                        <a class="active" href="checkout.php">Thanh toán</a>
+                        <a class="active" href="check_out.php">Thanh toán</a>
                     </div>
 
                 </div>
@@ -426,124 +435,12 @@ if(isset($_COOKIE['cart'])) {
                             </div>
                             <div class="categories_menu_toggle">
                                 <ul>
-                                    <li class="menu_item_children"><a href="#">Brake Parts <i
-                                                    class="fa fa-angle-right"></i></a>
-                                        <ul class="categories_mega_menu">
-                                            <li class="menu_item_children"><a href="#">Dresses</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Sweater</a></li>
-                                                    <li><a href="#">Evening</a></li>
-                                                    <li><a href="#">Day</a></li>
-                                                    <li><a href="#">Sports</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Handbags</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Shoulder</a></li>
-                                                    <li><a href="#">Satchels</a></li>
-                                                    <li><a href="#">kids</a></li>
-                                                    <li><a href="#">coats</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">shoes</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Ankle Boots</a></li>
-                                                    <li><a href="#">Clog sandals </a></li>
-                                                    <li><a href="#">run</a></li>
-                                                    <li><a href="#">Books</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Clothing</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Coats Jackets </a></li>
-                                                    <li><a href="#">Raincoats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu_item_children"><a href="#"> Wheels & Tires <i
-                                                    class="fa fa-angle-right"></i></a>
-                                        <ul class="categories_mega_menu column_3">
-                                            <li class="menu_item_children"><a href="#">Chair</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Dining room</a></li>
-                                                    <li><a href="#">bedroom</a></li>
-                                                    <li><a href="#"> Home & Office</a></li>
-                                                    <li><a href="#">living room</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Lighting</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Ceiling Lighting</a></li>
-                                                    <li><a href="#">Wall Lighting</a></li>
-                                                    <li><a href="#">Outdoor Lighting</a></li>
-                                                    <li><a href="#">Smart Lighting</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Sofa</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Fabric Sofas</a></li>
-                                                    <li><a href="#">Leather Sofas</a></li>
-                                                    <li><a href="#">Corner Sofas</a></li>
-                                                    <li><a href="#">Sofa Beds</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu_item_children"><a href="#"> Furnitured & Decor <i
-                                                    class="fa fa-angle-right"></i></a>
-                                        <ul class="categories_mega_menu column_2">
-                                            <li class="menu_item_children"><a href="#">Brake Tools</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Driveshafts</a></li>
-                                                    <li><a href="#">Spools</a></li>
-                                                    <li><a href="#">Diesel </a></li>
-                                                    <li><a href="#">Gasoline</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Emergency Brake</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Dolls for Girls</a></li>
-                                                    <li><a href="#">Girls' Learning Toys</a></li>
-                                                    <li><a href="#">Arts and Crafts for Girls</a></li>
-                                                    <li><a href="#">Video Games for Girls</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu_item_children"><a href="#"> Turbo System <i
-                                                    class="fa fa-angle-right"></i></a>
-                                        <ul class="categories_mega_menu column_2">
-                                            <li class="menu_item_children"><a href="#">Check Trousers</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Building</a></li>
-                                                    <li><a href="#">Electronics</a></li>
-                                                    <li><a href="#">action figures </a></li>
-                                                    <li><a href="#">specialty & boutique toy</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu_item_children"><a href="#">Calculators</a>
-                                                <ul class="categorie_sub_menu">
-                                                    <li><a href="#">Dolls for Girls</a></li>
-                                                    <li><a href="#">Girls' Learning Toys</a></li>
-                                                    <li><a href="#">Arts and Crafts for Girls</a></li>
-                                                    <li><a href="#">Video Games for Girls</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"> Lighting</a></li>
-                                    <li><a href="#"> Accessories</a></li>
-                                    <li><a href="#">Body Parts</a></li>
-                                    <li><a href="#">Networking</a></li>
-                                    <li><a href="#">Perfomance Filters</a></li>
-                                    <li><a href="#"> Engine Parts</a></li>
-                                    <li class="hidden"><a href="#">New Sofas</a></li>
-                                    <li class="hidden"><a href="#">Sleight Sofas</a></li>
-                                    <li><a href="#" id="more-btn"><i class="fa fa-plus" aria-hidden="true"></i> More
-                                            Categories</a></li>
+
+                                    <?php
+                                   foreach ($types as $key => $value) {
+                                   echo '<li><a href="shop.php?type='. $value->ID .'"> ' . $value->ten_loai_san_pham . '</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -556,7 +453,9 @@ if(isset($_COOKIE['cart'])) {
                                         <option selected value="">Tất cả sản phẩm</option>
                                         <?php
                                         foreach ($types as $key => $value) {
-                                            echo '<option  value="' . $value->ID . '">' . $value->ten_loai_san_pham . '</option>';
+                                            $selected = $value->ID == getGET("type") ? "selected":"";
+
+                                            echo '<option '.$selected.' value="' . $value->ID . '">' . $value->ten_loai_san_pham . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -567,7 +466,7 @@ if(isset($_COOKIE['cart'])) {
                                            value="<?php if (isset($_GET['search'])) {
                                                echo $_GET['search'];
                                            } ?>">
-                                    <button type="submit" id="submit_search" name="submit_search" onclick="getData()">Tìm kiếm</button>
+                                    <button type="submit" id="submit_search" name="submit_search" onclick="getLink()">Tìm kiếm</button>
 
 
                                 </div>

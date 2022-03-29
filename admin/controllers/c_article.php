@@ -1,19 +1,14 @@
 <?php
-session_start();
+include_once 'check_login.php';
 include_once("models/m_article.php");
 include_once("models/m_account.php");
+echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
 
 
 class c_article
 {
     public function show()
     {
-
-        if (isset($_SESSION['message'])) {
-            echo "<script type='text/javascript'> alert('" . $_SESSION['message'] . "'); </script>";
-            //to not make the error message appear again after refresh:
-            unset($_SESSION['message']);
-        }
         $m_article = new m_article();
         $m_account = new m_account();
         $list = $m_article->selectAll();
@@ -69,6 +64,7 @@ class c_article
                     $resultUpdate = $m_article->update($id_loai,$tieu_de,$ndtt,$ndct,$ngay_het_han,$id);
                     if ($resultUpdate) {
                         $_SESSION['message'] = "Cập nhật thành công";
+
                     } else {
                         $_SESSION['message'] = "Cập nhật thất bại";
                     }
@@ -77,7 +73,7 @@ class c_article
 
                 } else {
                     $resultInsert = $m_article->insert($id_loai,$id_nguoi_dung,$tieu_de,$ndtt,$ndct,$ngay_gui,$ngay_het_han);
-                    var_dump($resultInsert == true);
+//                    var_dump($resultInsert == true);
 //
 //                    if ($resultInsert) {
 //                        echo "<script>alert('Thêm thành công');</script>";
@@ -88,6 +84,8 @@ class c_article
 //                header("Location:banner.php");
                 }
         }
+
+        $title = "Cập nhât bài viết";
         $view = "view/v_article/v_add_article.php";
         include_once "templates/layouts.php";
 

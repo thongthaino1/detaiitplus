@@ -10,6 +10,7 @@
                         <div class="newsletter_sing_up">
                             <h3>Newsletter Sign Up</h3>
                             <p>(Get <span>30% OFF</span> coupon today subscibers)</p>
+
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-7">
@@ -19,10 +20,30 @@
                     </div>
                     <div class="col-lg-5 col-md-12">
                         <div class="subscribe_form">
-                            <form id="mc-form" class="mc-form footer-newsletter">
-                                <input id="mc-email" type="email" autocomplete="off" placeholder="Your email address..." />
-                                <button id="mc-submit">Subscribe</button>
+
+                            <form id="mc_form" method="post">
+
+                                <input required type="email" id="mc-email"  name ="emailCoupon" autocomplete="off" placeholder="Your email address..." />
+                                <button id="mc-submit" >Subscribe</button>
                             </form>
+                            <?php
+                                if(isset($_POST['emailCoupon']))
+                                {
+
+                                }
+                            ?>
+
+                            <script>
+                                $("#mc_form").on("submit",function (e) {
+                                  e.preventDefault();
+                                    swal("Chúc mừng","Bạn đã đăng ký thành công vui lòng xác nhận trong email","success")
+                                        .then(() => {
+                                            $("#mc_form").submit();
+
+                                        });
+                                });
+
+                            </script>
                             <!-- mailchimp-alerts Start -->
                             <div class="mailchimp-alerts text-centre">
                                 <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
@@ -272,6 +293,8 @@
 
 <!-- Main JS -->
 <script src="public/assets/js/main.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 
@@ -283,6 +306,7 @@
 
 <!-- Mirrored from template.hasthemes.com/antomi/antomi/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Nov 2021 11:52:18 GMT -->
 </html>
+
 
 
 

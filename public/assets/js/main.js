@@ -598,18 +598,23 @@
 	});
 
     /*---slider-range here---*/
+    function formatCurrency(number)
+    {
+        var currency = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number);
+        return currency;
+    }
     $( "#slider-range" ).slider({
         range: true,
-        min: 0,
-        max: 500,
-        values: [ 0, 500 ],
+        min: 1000,
+        max: 50000000,
+        values: [ 1000,50000000 ],
         slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        $( "#amount" ).val(   formatCurrency(ui.values[ 0 ]) + " - " + formatCurrency(ui.values[ 1 ])   );
+        $( "#currency" ).val(ui.values[ 0 ] +"-"+ ui.values[ 1 ] );
        }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-
+    $( "#amount" ).val(  formatCurrency($( "#slider-range" ).slider( "values", 0))    + "  - " +  formatCurrency($( "#slider-range" ).slider( "values", 1 ))  );
+    $( "#currency" ).val($( "#slider-range" ).slider( "values", 0) +"-"+ $( "#slider-range" ).slider( "values", 1) );
     /*---niceSelect---*/
      $('.niceselect_option').niceSelect();
 

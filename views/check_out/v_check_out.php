@@ -1,409 +1,275 @@
 <div class="breadcrumbs_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <ul>
-                            <li><a href="index.php">Trang chủ</a></li>
-                            <li>Thanh toán</li>
-                        </ul>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="index.php">Trang chủ</a></li>
+                        <li>Thanh toán</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!--breadcrumbs area end-->
+</div>
+<!--breadcrumbs area end-->
 
-    <!--Checkout page section-->
-    <div class="checkout_page_bg">
-        <div class="container">
-            <div class="Checkout_section">
+<!--Checkout page section-->
+<div class="checkout_page_bg">
+    <div class="container">
+        <div class="Checkout_section">
+            <div class="checkout_form">
                 <div class="row">
-<!--                    <div class="col-12">-->
-<!--                        <div class="user-actions">-->
-<!--                            <h3>-->
-<!--                                <i class="fa fa-file-o" aria-hidden="true"></i>-->
-<!--Returning customer?-->
-<!--                                <a class="Returning" href="#checkout_login" data-bs-toggle="collapse" aria-expanded="true">Click here to login</a>-->
-<!---->
-<!--                            </h3>-->
-<!--                             <div id="checkout_login" class="collapse" data-parent="#accordion">-->
-<!--                                <div class="checkout_info">-->
-<!--                                    <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>-->
-<!--                                    <form action="#">-->
-<!--                                        <div class="form_group">-->
-<!--                                            <label>Username or email <span>*</span></label>-->
-<!--                                            <input type="text">-->
-<!--                                        </div>-->
-<!--                                        <div class="form_group">-->
-<!--                                            <label>Password  <span>*</span></label>-->
-<!--                                            <input type="text">-->
-<!--                                        </div>-->
-<!--                                        <div class="form_group group_3 ">-->
-<!--                                            <button type="submit">Login</button>-->
-<!--                                            <label for="remember_box">-->
-<!--                                                <input id="remember_box" type="checkbox">-->
-<!--                                                <span> Remember me </span>-->
-<!--                                            </label>-->
-<!--                                        </div>-->
-<!--                                        <a href="#">Lost your password?</a>-->
-<!--                                    </form>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="user-actions">-->
-<!--                            <h3>-->
-<!--                                <i class="fa fa-file-o" aria-hidden="true"></i>-->
-<!--Returning customer?-->
-<!--                                <a class="Returning" href="#checkout_coupon" data-bs-toggle="collapse"  aria-expanded="true">Click here to enter your code</a>-->
-<!---->
-<!--                            </h3>-->
-<!--                             <div id="checkout_coupon" class="collapse" data-parent="#accordion">-->
-<!--                                <div class="checkout_info coupon_info">-->
-<!--                                    <form action="#">-->
-<!--                                        <input placeholder="Coupon code" type="text">-->
-<!--                                        <button type="submit">Apply coupon</button>-->
-<!--                                    </form>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                   </div>-->
-                </div>
-                <div class="checkout_form">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="checkout_form_left">
-                                <form action="" method="post" name ="formUserInfo">
-                                    <h3>Chi tiết đặt hàng</h3>
-                                    <div class="row">
-                                        <div class="col-lg-6 mb-20">
-                                            <label>Họ và tên<span>*</span></label>
-                                            <input  required type="text" name="fullName" id="fullName">
-                                        </div>
-<!--                                        <div class="col-12 mb-20">-->
-<!--                                            <label>Company Name</label>-->
-<!--                                            <input type="text">-->
-<!--                                        </div>-->
-                                        <div class="col-12 mb-20">
-                                            <label for="country">Tỉnh/Thành phố <span>*</span></label>
-                                            <select required class="niceselect_option" name="province" id="province">
-                                                <option value="An Giang">An Giang
-                                                <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
-                                                <option value="Bắc Giang">Bắc Giang
-                                                <option value="Bắc Kạn">Bắc Kạn
-                                                <option value="Bạc Liêu">Bạc Liêu
-                                                <option value="Bắc Ninh">Bắc Ninh
-                                                <option value="Bến Tre">Bến Tre
-                                                <option value="Bình Định">Bình Định
-                                                <option value="Bình Dương">Bình Dương
-                                                <option value="Bình Phước">Bình Phước
-                                                <option value="Bình Thuận">Bình Thuận
-                                                <option value="Bình Thuận">Bình Thuận
-                                                <option value="Cà Mau">Cà Mau
-                                                <option value="Cao Bằng">Cao Bằng
-                                                <option value="Đắk Lắk">Đắk Lắk
-                                                <option value="Đắk Nông">Đắk Nông
-                                                <option value="Điện Biên">Điện Biên
-                                                <option value="Đồng Nai">Đồng Nai
-                                                <option value="Đồng Tháp">Đồng Tháp
-                                                <option value="Đồng Tháp">Đồng Tháp
-                                                <option value="Gia Lai">Gia Lai
-                                                <option value="Hà Giang">Hà Giang
-                                                <option value="Hà Nam">Hà Nam
-                                                <option value="Hà Tĩnh">Hà Tĩnh
-                                                <option value="Hải Dương">Hải Dương
-                                                <option value="Hậu Giang">Hậu Giang
-                                                <option value="Hòa Bình">Hòa Bình
-                                                <option value="Hưng Yên">Hưng Yên
-                                                <option value="Khánh Hòa">Khánh Hòa
-                                                <option value="Kiên Giang">Kiên Giang
-                                                <option value="Kon Tum">Kon Tum
-                                                <option value="Lai Châu">Lai Châu
-                                                <option value="Lâm Đồng">Lâm Đồng
-                                                <option value="Lạng Sơn">Lạng Sơn
-                                                <option value="Lào Cai">Lào Cai
-                                                <option value="Long An">Long An
-                                                <option value="Nam Định">Nam Định
-                                                <option value="Nghệ An">Nghệ An
-                                                <option value="Ninh Bình">Ninh Bình
-                                                <option value="Ninh Thuận">Ninh Thuận
-                                                <option value="Phú Thọ">Phú Thọ
-                                                <option value="Quảng Bình">Quảng Bình
-                                                <option value="Quảng Bình">Quảng Bình
-                                                <option value="Quảng Ngãi">Quảng Ngãi
-                                                <option value="Quảng Ninh">Quảng Ninh
-                                                <option value="Quảng Trị">Quảng Trị
-                                                <option value="Sóc Trăng">Sóc Trăng
-                                                <option value="Sơn La">Sơn La
-                                                <option value="Tây Ninh">Tây Ninh
-                                                <option value="Thái Bình">Thái Bình
-                                                <option value="Thái Nguyên">Thái Nguyên
-                                                <option value="Thanh Hóa">Thanh Hóa
-                                                <option value="Thừa Thiên Huế">Thừa Thiên Huế
-                                                <option value="Tiền Giang">Tiền Giang
-                                                <option value="Trà Vinh">Trà Vinh
-                                                <option value="Tuyên Quang">Tuyên Quang
-                                                <option value="Vĩnh Long">Vĩnh Long
-                                                <option value="Vĩnh Phúc">Vĩnh Phúc
-                                                <option value="Yên Bái">Yên Bái
-                                                <option value="Phú Yên">Phú Yên
-                                                <option value="Tp.Cần Thơ">Tp.Cần Thơ
-                                                <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
-                                                <option value="Tp.Hải Phòng">Tp.Hải Phòng
-                                                <option value="Tp.Hà Nội">Tp.Hà Nội
-                                                <option value="TP  HCM">TP HCM
-                                            </select>
-                                        </div>
-
-                                        <div class="col-12 mb-20">
-                                            <label>Tên đường<span>*</span></label>
-                                            <input required placeholder="Số nhà và tên đường" type="text" name = "street">
-                                        </div>
-<!--                                        <div class="col-12 mb-20">-->
-<!--                                            <input placeholder="Apartment, suite, unit etc. (optional)" type="text">-->
-<!--                                        </div>-->
-<!--                                        <div class="col-12 mb-20">-->
-<!--                                            <label>Town / City <span>*</span></label>-->
-<!--                                            <input type="text">-->
-<!--                                        </div>-->
-<!--                                        <div class="col-12 mb-20">-->
-<!--                                            <label>State / County <span>*</span></label>-->
-<!--                                            <input type="text">-->
-<!--                                        </div>-->
-                                        <div class="col-lg-6 mb-20">
-                                            <label>Số điện thoại<span>*</span></label>
-                                            <input name = "phone" type="text" value="" required>
-<?//= $user['']?>
-                                        </div>
-                                        <div class="col-lg-6 mb-20">
-                                            <label> Email <span>*</span></label>
-                                            <input type="email" name = "email" required>
-
-                                        </div>
-<!--                                        <div class="col-12 mb-20">-->
-<!--                                            <input id="account" type="checkbox" data-target="createp_account" />-->
-<!--                                            <label for="account" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">Create an account?</label>-->
-<!---->
-<!--                                            <div id="collapseOne" class="collapse one" data-parent="#accordion">-->
-<!--                                                <div class="card-body1">-->
-<!--                                                    <label> Account password <span>*</span></label>-->
-<!--                                                    <input placeholder="password" type="password">-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-                                        <div class="col-12 mb-20">
-<!--                                            <input id="address" type="checkbox" data-target="createp_account" />-->
-                                            <label class="righ_0" for="address" data-bs-toggle="collapse" data-bs-target="#collapsetwo" aria-controls="collapseOne">Ship to a different address?</label>
-
-                                            <div id="collapsetwo" class="collapse one" data-parent="#accordion">
-                                                <div class="row">
-                                                    <div class="col-lg-6 mb-20">
-                                                        <label>Họ và tên<span>*</span></label>
-                                                        <input type="text" name="full_name" id="full_name">
-                                                    </div>
-<!--                                                    <div class="col-lg-6 mb-20">-->
-<!--                                                        <label>Tên <span>*</span></label>-->
-<!--                                                        <input type="text">-->
-<!--                                                    </div>-->
-                                                    <div class="col-12 mb-20">
-                                                        <label>Company Name</label>
-                                                        <input type="text">
-                                                    </div>
-                                                    <div class="col-12 mb-20">
-                                                        <label for="country">Tỉnh/Thành phố <span>*</span></label>
-                                                        <select class="niceselect_option" name="province" id="province">
-                                                            <option value="An Giang">An Giang
-                                                            <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
-                                                            <option value="Bắc Giang">Bắc Giang
-                                                            <option value="Bắc Kạn">Bắc Kạn
-                                                            <option value="Bạc Liêu">Bạc Liêu
-                                                            <option value="Bắc Ninh">Bắc Ninh
-                                                            <option value="Bến Tre">Bến Tre
-                                                            <option value="Bình Định">Bình Định
-                                                            <option value="Bình Dương">Bình Dương
-                                                            <option value="Bình Phước">Bình Phước
-                                                            <option value="Bình Thuận">Bình Thuận
-                                                            <option value="Bình Thuận">Bình Thuận
-                                                            <option value="Cà Mau">Cà Mau
-                                                            <option value="Cao Bằng">Cao Bằng
-                                                            <option value="Đắk Lắk">Đắk Lắk
-                                                            <option value="Đắk Nông">Đắk Nông
-                                                            <option value="Điện Biên">Điện Biên
-                                                            <option value="Đồng Nai">Đồng Nai
-                                                            <option value="Đồng Tháp">Đồng Tháp
-                                                            <option value="Đồng Tháp">Đồng Tháp
-                                                            <option value="Gia Lai">Gia Lai
-                                                            <option value="Hà Giang">Hà Giang
-                                                            <option value="Hà Nam">Hà Nam
-                                                            <option value="Hà Tĩnh">Hà Tĩnh
-                                                            <option value="Hải Dương">Hải Dương
-                                                            <option value="Hậu Giang">Hậu Giang
-                                                            <option value="Hòa Bình">Hòa Bình
-                                                            <option value="Hưng Yên">Hưng Yên
-                                                            <option value="Khánh Hòa">Khánh Hòa
-                                                            <option value="Kiên Giang">Kiên Giang
-                                                            <option value="Kon Tum">Kon Tum
-                                                            <option value="Lai Châu">Lai Châu
-                                                            <option value="Lâm Đồng">Lâm Đồng
-                                                            <option value="Lạng Sơn">Lạng Sơn
-                                                            <option value="Lào Cai">Lào Cai
-                                                            <option value="Long An">Long An
-                                                            <option value="Nam Định">Nam Định
-                                                            <option value="Nghệ An">Nghệ An
-                                                            <option value="Ninh Bình">Ninh Bình
-                                                            <option value="Ninh Thuận">Ninh Thuận
-                                                            <option value="Phú Thọ">Phú Thọ
-                                                            <option value="Quảng Bình">Quảng Bình
-                                                            <option value="Quảng Bình">Quảng Bình
-                                                            <option value="Quảng Ngãi">Quảng Ngãi
-                                                            <option value="Quảng Ninh">Quảng Ninh
-                                                            <option value="Quảng Trị">Quảng Trị
-                                                            <option value="Sóc Trăng">Sóc Trăng
-                                                            <option value="Sơn La">Sơn La
-                                                            <option value="Tây Ninh">Tây Ninh
-                                                            <option value="Thái Bình">Thái Bình
-                                                            <option value="Thái Nguyên">Thái Nguyên
-                                                            <option value="Thanh Hóa">Thanh Hóa
-                                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế
-                                                            <option value="Tiền Giang">Tiền Giang
-                                                            <option value="Trà Vinh">Trà Vinh
-                                                            <option value="Tuyên Quang">Tuyên Quang
-                                                            <option value="Vĩnh Long">Vĩnh Long
-                                                            <option value="Vĩnh Phúc">Vĩnh Phúc
-                                                            <option value="Yên Bái">Yên Bái
-                                                            <option value="Phú Yên">Phú Yên
-                                                            <option value="Tp.Cần Thơ">Tp.Cần Thơ
-                                                            <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
-                                                            <option value="Tp.Hải Phòng">Tp.Hải Phòng
-                                                            <option value="Tp.Hà Nội">Tp.Hà Nội
-                                                            <option value="TP  HCM">TP HCM
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-12 mb-20">
-                                                        <label>Street address <span>*</span></label>
-                                                        <input placeholder="House number and street name" type="text">
-                                                    </div>
-                                                    <div class="col-12 mb-20">
-                                                        <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
-                                                    </div>
-                                                    <div class="col-12 mb-20">
-                                                        <label>Town / City <span>*</span></label>
-                                                        <input type="text">
-                                                    </div>
-                                                    <div class="col-12 mb-20">
-                                                        <label>State / County <span>*</span></label>
-                                                        <input type="text">
-                                                    </div>
-                                                    <div class="col-lg-6 mb-20">
-                                                        <label>Số điện thoại<span>*</span></label>
-                                                        <input type="text" >
-
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <label> Email Address <span>*</span></label>
-                                                        <input type="text">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="order-notes">
-                                                <label for="order_note">Ghi chú cho shop</label>
-                                                <textarea name="order_note" id="order_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="order_button">
-                                            <button type="submit">Cập nhật thông tin </button>
-                                        </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout_form_left">
+                            <!--                                <form action="" method="post" name ="formUserInfo" id="submit-form-customer">-->
+                            <form method="post" id="submit-form-cart" action="">
+                                <h3>Thông tin khách hàng</h3>
+                                <div class="row" >
+                                    <div class="col-lg-6 mb-20">
+                                        <label>Họ và tên<span>*</span></label>
+                                        <input required type="text" name="ten_khach_hang" id="ten_khach_hang" value="<?php echo (isset($customer->ten_khach_hang))?$customer->ten_khach_hang:''?>">
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="col-12 mb-20">
+                                        <label>Giới tính<span>*</span></label>
+                                        <select class="niceselect_option " name="gioi_tinh" id="gioi_tinh">
+                                            <option value="0" <?php echo ($customer->gioi_tinh == 0)?'selected':''?> >Chưa có giới tính</option>
+                                            <option value="1" <?php echo ($customer->gioi_tinh == 1)?'selected':''?>>Nam</option>
+                                            <option value="2" <?php echo ($customer->gioi_tinh == 2)?'selected':''?>>Nữ</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 mb-20">
+                                        <label>Ngày Sinh<span>*</span></label>
+                                        <input name = "ngay_sinh" id="ngay_sinh" type="date" required value="<?php echo (isset($customer->ngay_sinh))?$customer->ngay_sinh:''?>">
+                                    </div>
+                                    <div class="col-12 mb-20">
+                                        <label for="country">Địa Chỉ<span>*</span></label>
+                                        <input  required type="text" id="dia_chi" name="dia_chi" value="<?php echo (isset($customer->dia_chi))?$customer->dia_chi:''?>">
+                                    </div>
+
+                                    <div class="col-lg-6 mb-20">
+                                        <label>Số điện thoại<span>*</span></label>
+                                        <input name = "so_dien_thoai" id="so_dien_thoai" type="text" required value="<?php echo (isset($customer->so_dien_thoai))?"0".$customer->so_dien_thoai:''?>">
+                                    </div>
+                                    <div class="col-lg-6 mb-20">
+                                        <label> Email <span>*</span></label>
+                                        <input type="email" id="email" name = "email" required value="<?php echo (isset($customer->email))?$customer->email:''?>">
+                                    </div>
+                                    <input type="hidden" name="id_nguoi_dung" value="<?php echo $customer->ID_nguoi_dung ?>">
+                                    <!--                                        <div class="order_button">-->
+                                    <!--                                            <button name="btn_update_customer" id="btn_update_customer">Cập nhật thông tin </button>-->
+                                    <!--                                        </div>-->
+                                </div>
+                                <!--                                </form>-->
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="checkout_form_right">
-                                <form action="#">
-                                    <h3>Chi tiết đơn hàng</h3>
-                                    <div class="order_table table-responsive">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Sản phẩm</th>
-                                                    <th>Tổng</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkout_form_right">
+                            <!--                                <form method="post" id="submit-form-cart" action="">-->
+                            <h3>Chi tiết đơn hàng</h3>
+                            <div class="order_table table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Tổng</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <input type="hidden" name="id_nguoi_dung" value="<?php echo $user->ID ?>">
+                                    <input type="hidden" name="tong_tien" value="<?php echo $tong; ?>">
+                                    <?php
 
-                                            foreach ($cartList as $item)
-                                            {
-                                                    for ($i = 0; $i < count($cart); $i++) {
-                                                        if ($item->ID == $cart[$i]['id']) {
-                                                            $qty = $cart[$i]['num'];
-                                                            break;
-                                                    }
-
-                                                }
-                                                    echo '<tr>
-                                                    <td>'.$item->ten_san_pham.'<strong> × '.$qty.'</strong></td>
-                                                    <td> '.  number_format($qty * $item->don_gia,
-                                                            0,',','.').'</td>
-                                                </tr>';
+                                    foreach ($cartList as $item)
+                                    {
+                                        for ($i = 0; $i < count($cart); $i++) {
+                                            if ($item->ID == $cart[$i]['id']) {
+                                                $qty = $cart[$i]['num'];
+                                                break;
                                             }
 
+                                        }
+                                        echo '<tr>
+                                                <td><a href="product_details.php?id='.$item->ID.'">'.$item->ten_san_pham.'</a><strong> × '.$qty.'</strong></td>
+                                                <td> '.  number_format($qty * $item->don_gia,
+                                                0,',','.').'</td>
+                                            </tr>';
+                                        ?>
+                                        <input type="hidden" name="id_san_pham[]" value="<?php echo $item->ID ?>">
+                                        <input type="hidden" name="so_luong[]" value="<?php echo $qty ?>">
+                                        <input type="hidden" name="thanh_tien[]" value="<?php echo $qty * $item->don_gia ?>">
 
-                                            ?>
-
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Tiền hàng</th>
-                                                    <td><?= number_format($tong, 0,',','.') ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Phí ship</th>
-                                                    <td><strong>$5.00</strong></td>
-                                                </tr>
-                                                <tr class="order_total">
-                                                    <th>Tổng tiền</th>
-                                                    <td><strong><?= number_format($tong, 0,',','.') ?></strong></td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <div class="payment_method">
-                                        <div class="panel-default">
-                                            <input id="payment" name="check_method" type="radio" data-target="createp_account" />
-                                            <label for="payment" data-bs-toggle="collapse" data-bs-target="#method" aria-controls="method">Create an account?</label>
-
-                                            <div id="method" class="collapse one" data-parent="#accordion">
-                                                <div class="card-body1">
-                                                    <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel-default">
-                                            <input id="payment_defult" name="check_method" type="radio" data-target="createp_account" />
-                                            <label for="payment_defult" data-bs-toggle="collapse" data-bs-target="#collapsedefult" aria-controls="collapsedefult">PayPal <img src="assets/img/icon/papyel.png" alt=""></label>
-
-                                            <div id="collapsedefult" class="collapse one" data-parent="#accordion">
-                                                <div class="card-body1">
-                                                    <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="order_button">
-                                            <button type="submit">Proceed to PayPal</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                        <?php
+                                    }
+                                    ?>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="order_total">
+                                        <th>Tổng tiền</th>
+                                        <td><strong><?= number_format($tong, 0,',','.') ?></strong>
+                                            <input type="hidden" id = "txt_tong_tien" name="txt_tong_tien" value="<?= $tong ?>">
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
                             </div>
+                            <div class="col-12">
+                                <div class="order-notes">
+                                    <label for="order_note">Ghi chú cho shop</label>
+                                    <textarea name="ghi_chu" id="ghi_chu"></textarea>
+                                </div>
+                            </div>
+                            <input type='hidden' id='hinhthuc' name='hinh_thuc_thanh_toan' value='Trực tiếp'>
+
+                            <div class="payment_method m-2">
+                                <ul class="nav nav-tabs m-2" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a  class="nav-link doanh-change-hinhthuc show active" id="#" data-value="Trực tiếp" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thanh toán trực tiếp</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link doanh-change-hinhthuc" id="#" data-value="Chuyển khoản" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Chuyển khoản</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link doanh-change-hinhthuc" id="#" data-value="Thanh toán online" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Thanh toán online</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <label>Địa chỉ shop :  123 Trần Phú, Hà Đông, Thành Phố Hà Nội</label>
+                                    </div>
+                                    <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <label>Công ty tin học DT - stk: 123456789789 - Ngân hàng BIDV</label>
+                                    </div>
+                                    <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                        <div >
+                                            <input type="hidden" name="id_tai_khoan" value="<?php  $user->ID ?>">
+                                            <input type="hidden" id="stripeToken" name="stripeToken" />
+                                            <input type="hidden" id="stripeEmail" name="stripeEmail" />
+                                            <input type="hidden" id="amountInCents" name="amountInCents" />
+                                            <input type="hidden" name="txtDiscount" class="txtDiscount" value=""/></br>
+
+                                            <img src="public/assets/img/icon/papyel.png" alt="">
+                                            <div class="order_button">
+                                                <button type="button" id="btn_check_out_paypal" name="btn_check_out_paypal">Thanh Toán Stripe</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order_button mdi-24px m-2">
+                                <button  id="btn_check_out" name="btn_check_out" >Đặt Hàng</button>
+                                <input type="hidden" value="1" name="type-payment" id="type-payment" />
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Checkout page section end-->
+<!--Checkout page section end-->
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_RktRYcffDgayxWK6b7Gho9Ol',
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        token: function(token) {
+            $("#stripeToken").val(token.id);
+            $("#stripeEmail").val(token.email);
+            $("#amountInCents").val(Math.floor($("#amountInDollars").val() * 100));
+            $("#submit-form-cart").submit();
+        }
+    });
+    $(window).on('popstate', function() {
+        handler.close();
+    });
+
+    $("#btn_check_out_paypal").click(function(e) {
+        let moneyStripe = 0;
+        let moneyInput = $("#txt_tong_tien").val();
+        let money = (moneyInput / 23000).toFixed(2);
+        // let discount = +$(".txtDiscount").val();
+        //
+        // if(discount != 0) {
+        //     moneyStripe = discount / 200;
+        // }
+        // else {
+        //     moneyStripe = money / 200;
+        // }
+        var amountInCents = Math.floor(moneyStripe);
+        var displayAmount = parseFloat(Math.floor(moneyStripe)).toFixed(2);
+        // console.log(123);
+        handler.open({
+            name: 'Antomi Store',
+            description: 'Custom amount ($' + money + ')',
+            amount: amountInCents,
+        });
+    });
+</script>
+<script>
+    $('#myTab a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    });
+    $("#btn_check_out").on('click',function(e) {
+        var ten_khach_hang = $("#ten_khach_hang").val();
+        var ngay_sinh = $("#ngay_sinh").val();
+        var so_dien_thoai = $("#so_dien_thoai").val();
+        var gioi_tinh = $("#gioi_tinh").val();
+        var email = $("#email").val();
+        var dia_chi = $("#dia_chi").val();
+        // var ghi_chu = $("#ghi_chu").val();
+        if (ten_khach_hang == ""|| ngay_sinh == ""|| so_dien_thoai == ""|| gioi_tinh == 0|| email == ""|| dia_chi == "" ) {
+            swal("Vui lòng cập nhật đầy đủ thông tin trước khi đặt hàng", "", "error");
+            return false;
+        }
+        else {
+            e.preventDefault();
+            swal({
+                title: "Đặt Hàng?",
+                text: "Bạn có chắc chắn muốn đặt hàng ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    swal({
+                        title: "Đặt hàng thành công",
+                        icon: "success",
+                    }).then(()=>{
+                        $("#submit-form-cart").submit();
+                        <?php $_SESSION['btn_check_out'] = 2;
+//                        setcookie('cart','',time()-1);
+                        ?>
+                    });
+                }
+                else {
+                    swal("Đã hủy đặt hàng!");
+                }
+            });
+        }
+    });
+
+
+    $(".doanh-change-hinhthuc").click(function() {
+        let value = $(this).data("value");
+        $("#hinhthuc").val(value);
+        if (value=="Thanh toán online")
+        {
+            $("#contact").show();
+            $("#btn_check_out").hide();
+            return;
+        }
+        else {
+            $("#btn_check_out").show();
+            return;
+        }
+    });
+</script>

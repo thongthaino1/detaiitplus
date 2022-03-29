@@ -8,7 +8,13 @@ class m_api extends database
 
         $cart = [];
         $cartUpdate = [];
-
+        $productsID = [];
+        $m_pro = new m_product();
+        $products = $m_pro->showAllProducts();
+        foreach ($products as $val)
+        {
+            $productsID[] = $val->ID;
+        }
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
         }
@@ -26,10 +32,18 @@ class m_api extends database
         if (isset($_COOKIE['cart'])) {
             $json = $_COOKIE['cart'];
             $cart = json_decode($json, true);
+
+
+            for ($i = 0; $i < count($cart); $i++) {
+                if ( !in_array($cart[$i]['id'],$productsID)) {
+                    array_splice($cart, $i, 1);
+                }
+            }
+            unset($_COOKIE['cart']);
+            setcookie('cart', json_encode($cart), time() + 7 * 24 * 30 * 12, '/');
+
             switch ($action) {
                 case 'add':
-//                    var_dump($cart);
-//                    var_dump($_COOKIE);
                     $isFind = false;
                     for ($i = 0; $i < count($cart); $i++) {
                         if ($cart[$i]['id'] == $id) {
@@ -45,8 +59,6 @@ class m_api extends database
                         ];
                     }
                     setcookie('cart', json_encode($cart), time() + 7 * 24 * 30 * 12, '/');
-//                    echo "Thêm thành công";
-//                    var_dump($cart);
                 var_dump($cart);
                 $this->QueryFromCart($cart);
                 var_dump($_SESSION);
@@ -71,7 +83,6 @@ class m_api extends database
                         }
                     }
 
-                    echo "Xóa thành công";
                     $this->QueryFromCart($cart);
 
                     break;
@@ -94,7 +105,6 @@ class m_api extends database
         $totalqty = 0;
 //        var_dump($_COOKIE);
         if (isset($cart)) {
-
             if (empty($cart)) {
                 unset($_SESSION['cartList']);
                 unset($_SESSION['tong']);

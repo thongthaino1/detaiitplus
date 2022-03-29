@@ -42,7 +42,7 @@ if(isset($_SESSION['messege']))
                                 <input required autocomplete="true" type="password" name = "Password" style="width: 250px;" >
                             </p>
                             <div class="login_submit">
-                                <a href="#">Quên mật khẩu</a>
+                                <a href="forgot_password.php">Quên mật khẩu</a>
                                 <label for="remember">
                                     <input id="remember" name = "remember" type="checkbox">
                                    Nhớ tài khoản và mật khẩu

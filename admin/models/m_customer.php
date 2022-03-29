@@ -14,6 +14,8 @@ class m_customer extends database{
         {
             $sql .= " WHERE ID_nguoi_dung = ".$id;
         }
+//        echo $id;
+//        var_dump($sql);
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
@@ -22,6 +24,13 @@ class m_customer extends database{
         $sql = "Select * from khach_hang where ID_nguoi_dung = ?";
         $this->setQuery($sql);
         return $this->loadRow([$id]);
+    }
+    public function selectAllEmail(){
+
+        $sql = "Select * from nhan_khuyen_mai ";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+
     }
     public function update($ten_tieu_de,$hinh_anh,$trang_thai,$id)
     {

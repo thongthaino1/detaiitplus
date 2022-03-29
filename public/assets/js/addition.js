@@ -4,13 +4,15 @@ $("#submit_search").on("click",function (e) {
 $("#orderby").on("change",function (e) {
     e.preventDefault();
 });
+$("#filter").on("click",function (e) {
+    e.preventDefault();
+});
 function getLink() {
 
     var data = [];
      data[data.length] =  $("#searchForm").serialize();
      data[data.length] = $("#orderby").serialize();
-     for (var i = 0;i<data.length;i++)
-     {}
+    data[data.length] = $("#filterPrice").serialize();
 
     var string = data.join("&");
     var arr = string.trim().split("&");
@@ -29,7 +31,7 @@ function getLink() {
 
      string = result.join("&");
     // alert(string);
-    window.open("shop.php?"+string);
+   window.location =  "shop.php?"+string ;
 
 
 }

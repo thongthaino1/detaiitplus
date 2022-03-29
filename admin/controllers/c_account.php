@@ -1,7 +1,7 @@
 <?php
-session_start();
+include_once 'check_login.php';
 include_once("models/m_account.php");
-
+echo "<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>";
 class c_account
 {
     public function show()
@@ -12,13 +12,25 @@ class c_account
             //to not make the error message appear again after refresh:
             unset($_SESSION['message']);
         }
-        $m_banner = new m_account();
-        $list = $m_banner->selectAll();
+        $m_account = new m_account();
+        $list = $m_account->selectAll();
+        $accountTypes = $m_account->selectAllType();
+        $id_loai = "";
+
+        if (isset($_POST['btnTimKiem'])) {
+            $id_loai = $_POST['accountType'];
+            if (!empty($id_loai))
+                $list = $m_account->selectAccountByID($id_loai);
+        }
+
+
+        $title = "Tài khoản";
         $view = "view/v_account/v_account.php";
         include_once "templates/layouts.php";
 
 
     }
+
     public function update()
     {
         $s_hinh_anh = $s_ten_tieu_de = $s_trang_thai = $s_id = "";
@@ -27,13 +39,11 @@ class c_account
         if (isset($_GET['id'])) {
             $s_id = $_GET['id'];
             $resultSelect = $m_banner->selectOne($s_id);
-
             if ($resultSelect) {
                 $s_id = $resultSelect->ma_tieu_de;
                 $s_ten_tieu_de = $resultSelect->ten_tieu_de;
                 $s_hinh_anh = $resultSelect->hinh;
                 $s_trang_thai = $resultSelect->trang_thai;
-
             } else {
                 $s_id = "";
             }
@@ -72,9 +82,11 @@ class c_account
                     if ($resultInsert) {
                         if ($hinh_anh != "")
                             move_uploaded_file($_FILES['hinh_anh']['tmp_name'], "../public/image/banner/$hinh_anh");
-                        echo "<script>alert('Thêm thành công');</script>";
+
+                        echo '<script>swal("Good job!", "Thêm thành công!", "success");</script>';
+                        echo '<script>window.location = "banner.php"</script>';
                     } else {
-                        echo "<script>alert('Thêm thất bại');</script>";
+                        echo '<script> swal("Good job!", "Thêm thất bại!", "error");</script>';
                         return;
                     }
 //                header("Location:banner.php");
@@ -87,6 +99,7 @@ class c_account
         }
 
     }
+
     public function delete()
     {
         $m_banner = new m_account();

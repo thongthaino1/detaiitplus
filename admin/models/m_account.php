@@ -8,6 +8,19 @@ class m_account extends database{
 
 
     }
+    public function selectAllType()
+    {
+        $sql = "Select * from loai_nguoi_dung";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
+    public function selectAccountByID($id)
+    {
+        $sql = "Select * from nguoi_dung where ID_loai_nguoi_dung = ?";
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($id));
+    }
+
     public function selectAll(){
         $sql = "Select * from nguoi_dung";
         $this->setQuery($sql);
